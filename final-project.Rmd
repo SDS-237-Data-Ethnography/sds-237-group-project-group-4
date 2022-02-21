@@ -10,3 +10,12 @@ output: html_document
 bibliography: final-project.bib
 csl: ./resources/chicago-author-date.csl
 ---
+
+```{r}
+library(tidyverse)
+library(downloader)
+id <- "13CE4VEvk9BYoqbL6tSyJ5ayIUR8DjJu5" 
+scorecard <- read_csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
+
+```
+
