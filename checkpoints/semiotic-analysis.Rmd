@@ -11,7 +11,7 @@ output:
   rmdformats::readthedown:
     df_print: paged
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 ## Overview and Instructions
@@ -59,8 +59,13 @@ prison_boundaries %>% str()
 ```
 
 ```{r}
-# Fill code to analyze structure here.
+scorecard %>% head()
 ```
+
+```{r}
+scorecard %>% str()
+```
+
 
 Note any potential data quality issues, such in incorrectly typed variables, missing values reported as something other than NA values, or dates formatted as strings. I'm assuming that at least a few members of your team will know how to clean these things up. You can use my example below as a guide. Reach out to me if there is something you are unsure of how to fix. 
 
@@ -103,7 +108,7 @@ prison_boundaries %>%
 
 In the prison_boundaries dataset, each row is what some might call a correctional facility, and what my collaborators and I refer to as a carceral facility (i.e. a prison, jail, or detention center).
 
-**Fill your response here.**
+In the Scorecard dataset, each row represents a post-secondary institution in the United States.
 
 ### How does that observation get defined in the data documentation? 
 
@@ -130,6 +135,8 @@ As you are considering this, you should:
 * Consider how insights we derive from this dataset would change had a different definition been used. 
 
 **Fill your response here.**
+
+The data documentation says, "A complete set of these data for all active Integrated Postsecondary Education Data System (IPEDS) institutions that participate in Title IV programs (either by disbursing aid or through deferments) and that are not solely administrative offices are available on the Scorecard data webpage and API1. In addition, some institutions that do not participate in Title IV programs are also included in the data if they meet similar criteria to Title IV participating institutions, ... [however] historical information for non-Title IV institutions (i.e., metrics from 1996- 97 through 2016-17) is not yet incorporated into the Scorecard data."
 
 
 ## Categorical Variables

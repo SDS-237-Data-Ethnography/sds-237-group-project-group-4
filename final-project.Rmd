@@ -10,3 +10,8 @@ output: html_document
 bibliography: final-project.bib
 csl: ./resources/chicago-author-date.csl
 ---
+
+```{r}
+scorecard <- scorecard  %>% discard(~all(is.null(.)))
+```
+
