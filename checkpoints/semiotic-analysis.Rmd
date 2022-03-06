@@ -2,10 +2,10 @@
 title: 'Semiotic Analysis'
 subtitle: 'SDS 237: Final Project Checkpoint'
 author:
-  - FILL ME
-  - FILL ME
-  - FILL ME
-  - FILL ME
+  - Rose Porta
+  - Tulip Daaboul
+  - Marta Almazovaite   
+  - Lala Rukh
 date: "Last updated on `r Sys.Date()`"
 output: 
   rmdformats::readthedown:
@@ -44,7 +44,9 @@ prison_boundaries <- read.csv("datasets/Prison_Boundaries.csv")
 ```
 
 ```{r}
-#Fill code to load data here.
+library(downloader)
+id <- "13CE4VEvk9BYoqbL6tSyJ5ayIUR8DjJu5" 
+scorecard <- read_csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
 ```
 
 
