@@ -193,6 +193,8 @@ prison_boundaries %>%
 #Fill code to plot bar charts here. 
 
 scorecard_und <- scorecard %>% 
+  filter(!is.na(CCUGPROF)) %>% 
+  mutate(CCUGPROF = as.numeric(CCUGPROF)) %>% 
   mutate(
          two_vs_four = case_when(
            CCUGPROF >= 1 & CCUGPROF <= 4 ~ "two-year",
@@ -200,9 +202,8 @@ scorecard_und <- scorecard %>%
            CCUGPROF == 0 ~ "not classified",
            CCUGPROF == -2 ~ "NA"
          )
-         ) %>% 
-  select(two_vs_four) %>% 
-  filter(!is.na(two_vs_four))
+         ) 
+  
 
 ggplot(data = scorecard, 
        aes(x = as.factor(CCUGPROF),
@@ -211,6 +212,7 @@ ggplot(data = scorecard,
   geom_bar() +
   coord_flip()
 
+# barchart for two versus four year
 ggplot(data = scorecard_und, 
        aes(x = two_vs_four,
            fill = two_vs_four)
@@ -226,8 +228,93 @@ scorecard %>%
   geom_bar() +
   coord_flip() +
   theme_minimal()
-
 ```
+
+```{r}
+scorecard_und_NA <- scorecard_und %>% 
+  filter(two_vs_four == "NA")
+
+scorecard_ccbasic <- scorecard %>% 
+  filter(!is.na(CCBASIC)) %>% 
+  mutate(CCBASIC = as.numeric(CCBASIC)) %>% 
+  mutate(cc_type = case_when(
+    CCBASIC == -2 ~ "NA",
+    CCBASIC == 0 ~ "unclassified",
+    (CCBASIC >= 1 & CCBASIC <= 9) ~ "Associate",
+    (CCBASIC >= 10 & CCBASIC <= 13) | (CCBASIC >= 24 & CCBASIC <= 32) ~ "Special Focus",
+    (CCBASIC == 14 | CCBASIC == 23) ~ "Baccalaureate/Associate",
+    (CCBASIC >= 15 & CCBASIC <= 17) ~ "Doctoral",
+    (CCBASIC >= 18 & CCBASIC <= 20) ~ "Masters",
+    (CCBASIC == 21 | CCBASIC == 22) ~ "Baccalaureate",
+    CCBASIC == 33 ~ "Tribal College"
+  ))
+
+scorecard_ccbasic_summarized <- scorecard_ccbasic %>% 
+  group_by(cc_type) %>% 
+  summarize(count = n()) 
+
+# barplot of carnegie classification basic type
+ggplot(scorecard_ccbasic_summarized,
+       aes(x = reorder(cc_type, count), y = count, fill = cc_type)) +
+  geom_col() +
+  coord_flip() +
+  labs(x = "Carnegie Basic Classification")
+```
+
+```{r}
+# size/setting
+scorecard_ccsize <- scorecard %>% 
+  filter(!is.na(CCSIZSET)) %>% 
+  mutate(CCSIZSET = as.numeric(CCSIZSET)) %>% 
+  mutate(cc_size = case_when(
+    CCSIZSET == -2 ~ "NA",
+    CCSIZSET == 0 ~ "unclassified",
+    CCSIZSET == 1 | (CCSIZSET >= 6 & CCSIZSET <= 8) ~ "very small",
+    CCSIZSET == 2 | (CCSIZSET >= 9 & CCSIZSET <= 11) ~ "small",
+    CCSIZSET == 3 | (CCSIZSET >= 12 & CCSIZSET <= 14) ~ "medium",
+    CCSIZSET == 4 | CCSIZSET == 5 | (CCSIZSET >= 15 & CCSIZSET <= 17) ~ "large",
+    CCSIZSET == 18 ~ "exclusively graduate"
+  ),
+  cc_residential = case_when(
+    CCSIZSET < 6 | CCSIZSET == 18 ~ "NA",
+    CCSIZSET %% 3 == 0 ~ "primarily nonresidential",
+    (CCSIZSET - 1) %% 3 == 0 ~ "primarily residential",
+    (CCSIZSET - 2) %% 3 == 0 ~ "highly residential"
+  )
+  ) %>% 
+  filter(cc_size != "NA") %>% 
+  select(INSTNM, CCSIZSET, cc_size, cc_residential)
+
+# barchart for setting
+scorecard_ccsize %>% 
+  filter(cc_residential != "NA") %>% 
+  ggplot(aes(x = cc_residential, fill = cc_residential)) +
+  geom_bar() +
+  coord_flip()
+
+# barchart for size
+ggplot(scorecard_ccsize,
+       aes(x = cc_size, fill = cc_size)) +
+  geom_bar() +
+  coord_flip()
+
+# setting facetted by size
+scorecard_ccsize %>% 
+  filter(cc_residential != "NA") %>% 
+  ggplot(aes(x = cc_residential, fill = cc_residential)) +
+  geom_bar() +
+  coord_flip() +
+  facet_wrap(~cc_size)
+```
+
+```{r}
+# look at special focus versus na
+scorecard_n <- scorecard_ccbasic %>% 
+  filter(cc_type == "Special Focus")
+scorecard_na <- scorecard_ccbasic %>% 
+  filter(cc_type == "NA")
+```
+
 
 What do you notice first?
 
