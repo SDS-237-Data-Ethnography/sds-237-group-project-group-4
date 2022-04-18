@@ -1,3 +1,5 @@
+> Announcement! New feedback2 pull request added for revisions!
+
 # SDS 237 Group Project Template
 
 This repo serves as a template for SDS 237 Group Project. It contains template files and rubrics for the group contract, project checkpoints, and final project.
