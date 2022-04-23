@@ -32,6 +32,7 @@ The purpose of aggregating this data and making it publicly available is to show
 
 ## Data Sources
 
+![](images/Scorecard1.jpg){height=300px, width=500px}
 
 The primary data sources contributing to the Scorecard dataset are the Integrated Postsecondary Education Data System ([IPEDS](https://nces.ed.gov/ipeds/)), the National Student Loan Data System (NSLDS), and administrative tax records maintained by the U.S. Department of Treasury. It is notable that all of these sources collect data at the federal level and are maintained by offices within the U.S. government including the Federal Student Aid Office (FSA), the Postsecondary Education Office, and the Institute of Educational Sciences, which houses the National Center for Educational Statistics (NCES). Scorecard also sources a few variables from the U.S. Census, which is also maintained by the government. This use of federal-level data allows for standardized comparison between institutions, and yet it likely erases nuances within specific schools as schools of varying sizes across different states, and catering to different student groups are being fit into one frame. Some of the nuances this standardization erases include the specificities of field of study, the financial aid relative to cost of living, and the type of support available to students on campus. However, it is important to understand that this data can be useful for comparison of institutions across geographic space, however the data may not be fully representative of each institution.
 
@@ -67,6 +68,8 @@ Users can explore the data using an [interactive tool](https://collegescorecard.
 
 The [college Scorecard website](https://collegescorecard.ed.gov) has two easy ways to navigate their system without even having to download the dataset. You can either search for a specific school or field of study and the site will direct you to a page  showing you the basic information about the school or direct you to top schools for that field of study. The information the site gives you on these schools include but are not limited to the graduation rate, average annual cost, median earnings of graduates, financial aid, and standardized test information. In all, this website provides its users with quick and easy statistics about the school or field of study they want to learn more about. The second option is the compare option, where you can select as many schools as you want and the website will give you their data side by side with graphs to easily demonstrate the differences. 
 
+![](images/Scorecard2.png){height=100px, width=400px}
+
 The above image presents an example of what a user would see immediately when they search a specific institution.
 
 However, there is one last option you can have to navigate the data, and that is to download the dataset. Downloading the dataset consists of downloading multiple files including a field of study data file, institution level data file, and a crosswalk file that links each institution with its “UNITID”. By looking at this, you are looking at the raw data, with multiple numbers and words which is going to make it hard to analyze and read. To use this, you also need to go through the documentation to understand what each variable means, and as there are 2400 variables, going through each of their documentation is a tedious task for the average user. Therefore, in order to come to a better conclusion and maximize utility, using the scorecard website might be your best bet. 
@@ -80,6 +83,8 @@ The downloadable version of the Scorecard dataset contains almost 2400 variables
 However, all variables sourced from the NSLDS and from the U.S. Treasury tax records are privacy protected and not available in the public dataset. This includes variables related to financial aid, loan repayment, and earnings after graduation. Additionally, values with fewer than 30 students in a specific category are suppressed in order to maximize the representativeness of the data. An example of a group of variables where this is the case is 3-year loan repayment rate for various groups; specifically “3-year repayment rate for female students”, “3-year repayment rate for male students”, “3-year repayment rate for first-generation students”, etc. In the case of these repayment variables, it makes sense that the curators of the data set might choose to suppress them for institutions where the number of students in a specific category is small. For example, if there are only a handful of first-generation students at an institution, the loan-repayment rate for that group may fluctuate based  on who those specific individuals in the group at that time are. Thus this rate may not be accurately representative of first-generation students as whole. These values that are privacy protected show up as “PrivacySuppressed” in the data. 
 
 Although these variables are not available in the downloadable version of the data, they are still available in an aggregated form through the Scorecard website interactive tool. For example, if a user searches a specific institution using the interactive tool, they can see a number indicating “median total debt after graduation” and see how that number compares to peer schools, but users cannot see information about debt for specific sub-groups of students such as first-generation students, women, international students, etc. 
+
+![](images/Scorecard3.png){height=300px, width=500px}
 
 Furthermore, between 2016-2020, the Trump administration chose to stop releasing variables related to loan repayment and earnings after graduation because the administration believed these variables unfairly targeted for-profit schools, which often give out many loans and leave students in a significant amount of debt [The New York Times](https://www.nytimes.com/2019/06/28/us/politics/betsy-devos-for-profit-colleges.html). During these years, these discontinued variables show up as “NULL” in the data. After eliminating all of the variables that are unavailable, there are about 750 variables remaining in the public dataset. 
 
@@ -115,7 +120,7 @@ While there are many existing limitations and concerns about the generalizabilit
 
 ## References
 
-“An Overview of the U.S. Department of Education-- Pg 1.” Pamphlets, May 14, 2018. https://www2.ed.gov/about/overview/focus/what.html#:~:text=The%20U.S.%20Department%20of%20Education%20is%20the%20agency%20of%20the,implementing%20laws%20enacted%20by%20Congress.
+“An Overview of the U.S. Department of Education-- Pg 1.” Pamphlets, May 14, 2018. https://www2.ed.gov/about/overview/focus/what.html#
 
 “College Scorecard | College Scorecard.” Accessed April 10, 2022. https://collegescorecard.ed.gov/.
 
