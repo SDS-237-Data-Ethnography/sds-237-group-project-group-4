@@ -6,19 +6,15 @@ author:
   - Marta Almazovaite   
   - Lala Rukh
 date: "Last updated on `r Sys.Date()`"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    theme: journal
 bibliography: final-project.bib
 csl: ./resources/chicago-author-date.csl
 ---
-
-```{r}
-# code to read in dataset
-# library(tidyverse)
-# library(downloader)
-# id <- "13CE4VEvk9BYoqbL6tSyJ5ayIUR8DjJu5" 
-# scorecard <- read_csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
-```
-
 
 ## What is the Scorecard dataset?
 
