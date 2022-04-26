@@ -1,0 +1,157 @@
+---
+title: "Final Project - Scorecard User Guide"
+author:
+  - Rose Porta
+  - Tulip Daaboul
+  - Marta Almazovaite   
+  - Lala Rukh
+date: "Last updated on `r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    theme: journal
+bibliography: final-project.bib
+csl: ./resources/chicago-author-date.csl
+---
+
+## What is the Scorecard dataset?
+
+The Scorecard dataset is aggregated and maintained by the U.S. Department of Education for the purpose of facilitating the process of comparing postsecondary institutions. The data contains standardized information about higher-education institutions that may be useful to prospective students and families when choosing a school. It includes information regarding academic programs offered, characteristics of the student body, admissions policies, costs, financial aid, completion and retention, and outcomes after graduation. 
+
+## Who made this dataset? 
+
+ The [U.S. Department of Education](https://www2.ed.gov/about/overview/focus/what.html#:~:text=The%20U.S.%20Department%20of%20Education%20is%20the%20agency%20of%20the,implementing%20laws%20enacted%20by%20Congress) is a federal institution that “establishes policy for, administers and coordinates federal assistance to education”, and maintains the Scorecard dataset and website. It is also a part of assisting the government in its education policies and advises them on any educational policy that is put forth. The department aims to achieve student excellence and prepare them for global competition through quality education and ensuring equal access. When the department was created in 1979, Congress declared its purpose to “ensure access to equal educational opportunity to every individual”; to work with federal, state, local, private, public, non profit, community-based organizations as well as parents and students to improve the quality of education. They also aim to “encourage increased involvement of the public, parents, and students in education programs”. They work to promote the improvement of the quality and usefulness of the Scorecard dataset through research supported by federal funding and  dissemination of information. As the Department of Education is a federal agency, it also works alongside other agencies to improve the coordination and efficiency of federal education programs. The purpose of this institution that most aligns with Scorecard is the Department of Education wanting to increase accountability of education programs.  
+
+The College Scorecard was crafted by this department in the Obama administration to hold higher education institutions accountable and to provide comprehensive (but not complete) information to students choosing colleges. The Department of Education has worked through policy conflicts, incomplete information, and opposition to make this dataset accessible to students for more informed choices. However, the administration acknowledged that in the US economy, some higher education is one of the only sure ways to move up the socioeconomic ladder. This is why incoming college students need to make informed decisions and the former president, Barack Obama, was committed to making sure this information is available to the public. This is why multiple offices from the Department of Education have contributed to this dataset, including the Federal Student Aid Office, the National Center for Educational Statistics, and the National Student Loan Data System. The information extracted from these offices is supplemented by information from the Office of Postsecondary Education and individual higher education institutions.
+
+## What is the Purpose of the Dataset? 
+
+The purpose of aggregating this data and making it publicly available is to showcase different institutions and fields of study. This allows prospective students and families to compare schools by allowing them to explore various detailed characteristics of institutions according to their own needs so that they can determine which institutions would most support their academic success. Choosing a college is hard, especially knowing that it will impact your next four years. This dataset allows students to easily look schools up and learn quick facts about them that will hopefully help them make the right decision.
+
+## Data Sources
+
+![](images/Scorecard1.jpg){height=300px, width=500px}
+
+The primary data sources contributing to the Scorecard dataset are the Integrated Postsecondary Education Data System ([IPEDS](https://nces.ed.gov/ipeds/)), the National Student Loan Data System (NSLDS), and administrative tax records maintained by the U.S. Department of Treasury. It is notable that all of these sources collect data at the federal level and are maintained by offices within the U.S. government including the Federal Student Aid Office (FSA), the Postsecondary Education Office, and the Institute of Educational Sciences, which houses the National Center for Educational Statistics (NCES). Scorecard also sources a few variables from the U.S. Census, which is also maintained by the government. This use of federal-level data allows for standardized comparison between institutions, and yet it likely erases nuances within specific schools as schools of varying sizes across different states, and catering to different student groups are being fit into one frame. Some of the nuances this standardization erases include the specificities of field of study, the financial aid relative to cost of living, and the type of support available to students on campus. However, it is important to understand that this data can be useful for comparison of institutions across geographic space, however the data may not be fully representative of each institution.
+
+
+
+### NCES
+
+Many of the variables that are included in the Scorecard dataset use data that is collected from IPEDS. IPEDS is managed by the NCES and is the infrastructure for how NCES collects and distributes data (see figure above). This data system is responsible for collecting, reviewing, and validating data from institutions, which then gets publicly reported on the IPEDS website. In the Scorecard dataset, many important variables regarding enrollment and costs come from IPEDS. A few examples are control of institutions (public versus private and non-profit versus for-profit), location, distribution of SAT and ACT scores, completion rates for various groups, cost of attendance, and value of endowment. It is notable that for some of the IPEDS variables related to students including completion rates, only [Pell Grant](https://studentaid.gov/understand-aid/types/grants/pell) recipients, meaning students who receive federal financial aid, are included in the data.
+
+NCES is responsible for the data collection and analysis for the US Department of Education. Because their goal is to provide data to the US Department of Education, their data work is central to their mission. NCES exists within the Institute of Educational Sciences, which conducts research on education more broadly, but the primary goal of NCES is to provide statistical data to the work of the US Department of Education. NCES is federally funded, and its budget comes from the US Department of Education. 
+
+The data work that NCES conducts is fairly transparent and reliable. It provides documentation for its work, and also has a [page](https://nces.ed.gov/statprog/2012/) with detailed documents about the standards that they follow for each part of the data collection process. IPEDS, the infrastructure discussed previously, has multiple rounds of data distribution/review, which give postsecondary institutions themselves the option of reviewing the data that was collected and revising it. This adds to the accuracy and credibility of the data that NCES collects. 
+
+Any postsecondary institution that is a part of [Title IV](https://www.edmit.me/blog/what-is-a-title-iv-school),  meaning their students receive federal financial aid, is required to report data to IPEDS. The [IPEDS Survey Methodology](https://nces.ed.gov/ipeds/ReportYourData/IpedsSurveyMethodology) page outlines the specifics of what this data reporting looks like. As the site states, NCES asks each institution to appoint a “keyholder” that is responsible for completion of the survey. The keyholder can work in conjunction with others at the institution, however. At Smith College, it was not possible to find through a web search who specifically completes the IPEDS survey. However, Smith College has an [Office of Institutional Research](https://www.smith.edu/about-smith/institutional-research), which maintains analytics about the College, and we speculate that someone from the handful of staff at this Office likely completes the IPEDS survey. The data is reported through IPEDS online, and the survey is tailored to the institutions that complete it (having questions tailored to private versus public institutions, for instance). There don’t seem to be any requirements for how institutions themselves collect data, as long as they are able to complete the IPEDS survey. 
+
+Throughout the survey completion process, which happens in three reporting periods throughout the year, various checks are done to ensure that the data appear within reasonable bounds, or “make sense”, essentially. For instance, the survey can check real-time that the number of students receiving financial aid is not greater than the total number of students, or that tuition and fees did not increase by greater than 30 percent from the previous year. If data does not pass these checks, the keyholder must either resolve the error, or be in contact with IPEDS about how to make note of the institution’s unusual circumstances. The guidelines and timeline of survey completion is clear, but finding it takes some digging from the user’s perspective. We imagine that institutions are provided with thorough instructions, though, as completing this survey fully and accurately is a requirement for many institutions. 
+
+Institutions that don’t complete this survey or mishandle their data may face suspensions, fines, warning letters, or other kinds of limitations as consequences for not complying with this Title IV requirement. As stated [in the Statutory Requirements for Reporting IPEDS data](https://surveys.nces.ed.gov/ipeds/public/statutory-requirement), schools that do not submit their surveys are in violation under the Higher Education Act and “appropriate action will be taken”. It’s important to note that for institutions that are not in Title IV, data reporting to IPEDS is optional. Not all of the postsecondary institutions that are included in the Scorecard dataset are in Title IV. 
+
+### FSA
+
+Some of the data that Scorecard gathers and reports comes from the department of Federal Student Aid (FSA), which is also a division of the US Department of Education. FSA’s mission is to provide financial aid to students at postsecondary institutions, and data work is central to this because it allows the department to keep track of the aid they award and where it goes. In the Scorecard dataset, the FSA is the source for variables regarding the financial side of things, including financial outcomes after graduation and some financial aid award metrics, but also other descriptive information about student bodies that supplement IPEDS data. A few examples of specific variables are loan repayment status one year after graduation, distribution of students’ family incomes, and distribution of students’ parents’ highest level of education completed.
+
+Just as NCES uses IPEDS as its data infrastructure, FSA uses the NSLDS as its data collection and reporting infrastructure. Unfortunately, the data work of FSA is not as transparent as that of NCES. FSA itself does have a very outward-facing website, in the sense that it has a lot of links for people who have/are looking to get federal student aid, but it’s a lot harder to find documentation for how FSA does its data work. An authorized log-in is required to view the NSLDS site, so the details of this infrastructure are restricted and not as open to the public as some other data infrastructures. 
+
+As an office within the U.S. Department of Education, FSA must meet the requirements put forth by the government regarding their data work. Just like other institutions, fines, penalties, and warnings are some repercussions that FSA may face for mishandling data, whether this includes data breaches, or just putting the wrong data out there. However, as the data work of FSA is not very transparent, it’s harder to locate the specific regulations and systems of accountability that exist for the NSLDS. 
+
+NCES and FSA are two examples of the sources of data that the Scorecard dataset uses. They both operate within the U.S. Department of Education, but their data work practices vary in terms of transparency, what information they collect, and what data infrastructures they use. 
+
+## How to Use the Scorecard Resources
+
+Users can explore the data using an [interactive tool](https://collegescorecard.ed.gov/) through the Scorecard website, through an [API](https://collegescorecard.ed.gov/data/documentation/), or by [downloading the data](https://collegescorecard.ed.gov/data).
+
+The [college Scorecard website](https://collegescorecard.ed.gov) has two easy ways to navigate their system without even having to download the dataset. You can either search for a specific school or field of study and the site will direct you to a page  showing you the basic information about the school or direct you to top schools for that field of study. The information the site gives you on these schools include but are not limited to the graduation rate, average annual cost, median earnings of graduates, financial aid, and standardized test information. In all, this website provides its users with quick and easy statistics about the school or field of study they want to learn more about. The second option is the compare option, where you can select as many schools as you want and the website will give you their data side by side with graphs to easily demonstrate the differences. 
+
+![](images/Scorecard2.png){height=100px, width=400px}
+
+The above image presents an example of what a user would see immediately when they search a specific institution.
+
+However, there is one last option you can have to navigate the data, and that is to download the dataset. Downloading the dataset consists of downloading multiple files including a field of study data file, institution level data file, and a crosswalk file that links each institution with its “UNITID”. By looking at this, you are looking at the raw data, with multiple numbers and words which is going to make it hard to analyze and read. To use this, you also need to go through the documentation to understand what each variable means, and as there are 2400 variables, going through each of their documentation is a tedious task for the average user. Therefore, in order to come to a better conclusion and maximize utility, using the scorecard website might be your best bet. 
+
+## Dataset Structure
+
+This data includes information about roughly 7000 postsecondary institutions in the United States. All IPEDS institutions that participate in Title IV programs are included in the data, and in the most recent version, additional institutions that do not participate in Title IV but meet similar criteria have been added. This includes a wide variety of postsecondary institutions that offer various types of degrees including but not limited to Bachelor’s, Associate’s, Master’s, Doctorate, professional, and technical degrees. Each observation represents an individual institution uniquely identified by the “UNITID” variable. However, there is some inconsistency in how an individual institution is defined given that some institutions that have multiple campuses, online programs, or other sub-institutions within the institution choose to report each sub-institution separately, and others choose to report them all under one “UNITID”. This inconsistency exists because IPEDS and the FSA have different methods of uniquely identifying an institution. The “UNITID” is associated with the IPEDS survey, and a different ID variable, “OPEID”, is associated with the FSA. In many cases, each individual location of a University has a separate OPEID in order to differentiate allocation of federal financial aid, and yet all of those separate locations are aggregated under one “UNITID” for IPEDS reporting. However, in some cases, institutions may choose to report their online and in-person programs as separate “UNITID”s even though both programs are under the same “OPEID”. 
+
+The downloadable version of the Scorecard dataset contains almost 2400 variables. One reason that there is such an overwhelming number of variables is because each general variable is broken down into separate variables for different sub-groups of students. For example, within the general category of variables related to loan repayment, a few of the specific variables include “Number of students in the 1-year repayment rate of first-generation students cohort”, “Number of students in the 1-year repayment rate of not-first-generation students cohort”, “Number of students in the 1-year repayment rate of male students cohort”, etc. In total, there are 55 variables with the same format as the variables listed above describing the number of students in the 1, 3, 5, and 7 year repayment rates for each of about 13 different cohorts. 
+
+However, all variables sourced from the NSLDS and from the U.S. Treasury tax records are privacy protected and not available in the public dataset. This includes variables related to financial aid, loan repayment, and earnings after graduation. Additionally, values with fewer than 30 students in a specific category are suppressed in order to maximize the representativeness of the data. An example of a group of variables where this is the case is 3-year loan repayment rate for various groups; specifically “3-year repayment rate for female students”, “3-year repayment rate for male students”, “3-year repayment rate for first-generation students”, etc. In the case of these repayment variables, it makes sense that the curators of the data set might choose to suppress them for institutions where the number of students in a specific category is small. For example, if there are only a handful of first-generation students at an institution, the loan-repayment rate for that group may fluctuate based  on who those specific individuals in the group at that time are. Thus this rate may not be accurately representative of first-generation students as whole. These values that are privacy protected show up as “PrivacySuppressed” in the data. 
+
+Although these variables are not available in the downloadable version of the data, they are still available in an aggregated form through the Scorecard website interactive tool. For example, if a user searches a specific institution using the interactive tool, they can see a number indicating “median total debt after graduation” and see how that number compares to peer schools, but users cannot see information about debt for specific sub-groups of students such as first-generation students, women, international students, etc. 
+
+![](images/Scorecard3.png){height=300px, width=500px}
+
+Furthermore, between 2016-2020, the Trump administration chose to stop releasing variables related to loan repayment and earnings after graduation because the administration believed these variables unfairly targeted for-profit schools, which often give out many loans and leave students in a significant amount of debt [The New York Times](https://www.nytimes.com/2019/06/28/us/politics/betsy-devos-for-profit-colleges.html). During these years, these discontinued variables show up as “NULL” in the data. After eliminating all of the variables that are unavailable, there are about 750 variables remaining in the public dataset. 
+
+
+## Data Classificatory Structures
+
+An important aspect to consider is the classification of the data. While the U.S Department of Education does its best with updating the information, does this mean that the classification systems capture everything? How well is the U.S Department of Education classifying everything? Based on our experiences, we can only speak for ourselves and the institution that we attend, Smith College. We tried searching for a few fields of study and found out that the website does not include Statistical and Data Sciences as an option. Now this might not seem like an immense variable to leave out, but what if there were some errors when reporting financial aid information? Lots of students make their decisions based on financial aid, and if the website lists incorrect numbers, they might lose a prospective student. But there are other consequences that the school or the Department of U.S Education might face if they were to report incorrect information. 
+
+For instance, if the Department of U.S Education were to mishandle their data in any way, the Office of Civil Rights might refer to the Department of Justice and head straight toward court action. This might end with lawsuits and budget cuts. 
+
+Leaving out the SDS major from the overview of Smith college may be an issue of classification, because Statistics students are captured in the more general category of just having a “Statistics” degree. For Psychology, though, there are accuracy errors beyond just too-broad classifications. Smith is shown to have two different kinds of psychology degrees, “general” and “research and experimental”, but in reality this is not the case. Smith does *not* have two different kinds of psychology majors. So, this is an error that can also seem insignificant at first, but may seriously mislead students interested in psychology.
+
+## Limitations of the Data Set 
+
+Not every data set is perfect. There are going to be times where datasets are frustrating because of their limitations. The college Scorecard dataset is one of them. The [article](https://www.usatoday.com/story/news/nation/2013/02/13/college-scorecard-gathers-financial-data/1918143/) “College Scorecard gathers financial data in one website” published by Jens Manuel Krogstad discusses some of the negative discourse surrounding this dataset. Mark Scheider, the vice president at the American Institutes for Research in Washington, D.C. points out one setback, which is that “data on wages for first jobs is a key missing piece of the website”. Also, some of the data “on average debt and monthly repayments lack context” which makes  it harder for some families to interpret the meaning of loans or payments. 
+
+Tom Delahunt, the vice president at Drake University for admissions even points out that “the net price of a college, are several years old. Universities, as a result, may have to explain to families why the prices they saw on the website are lower than the current costs”. So the data is not always accurate, and this might hurt lots of families in the end, who  end up paying more than they thought they would. 
+
+Another article that discusses some of the negative discourse is [“President Obama’s New College Scorecard Received an ‘F’”](https://www.huffpost.com/entry/president-obamas-new-coll_b_8137234) . Are no data better than false or misrepresented data? Some might argue no, because hey, at least we still have *something*, but this article argues the opposite. J. Randall O’Brien mentions “college accessibility, affordability and accountability are critical issues that rightfully belong on our nation's agenda. Assessment, however, formulated on the basis of incomplete questioning and misleading data may prove much more damaging than having no published assessment at all”. Misrepresented data can do lots of harm. 
+
+The repercussions of this misrepresented data show up in numerous ways. If a low income family, lets say, ends up choosing a school because they thought they could afford it, but later find out that they have to take out more loans than imaged to be able to afford the tuition, this is going to hurt the family financially. Or let's say that someone chose a school because they thought it had a certain major, but then on the first day of classes realize that the major is a different one than listed on the Scorecard website. Incorrect data may give the wrong image of a school and lead students to make less informed decisions which is the opposite of what they were trying to achieve.  O'Brien also questions, “Do we wish to undermine and imperil the vitally important work of our nation's service sector, and its college providers, by placing value on salary alone?” Here, he is arguing that the dataset overemphasizes earnings after college without breaking this down or considering it with more nuance about what those earnings actually mean. 
+
+An example of the nuances this dataset skips are given in the [Brookings Article](https://www.brookings.edu/blog/brookings-now/2016/03/28/obamas-college-scorecard-is-a-step-in-the-right-direction-but-better-data-would-improve-it/) where the author Eric Bull touches upon tax filings and how a student filing as a dependent at the beginning of their college career versus the same dependent filing as an independent when they graduate have a drastic change in income which may not be relevant to the college at all and skew the results. This  needs to be taken with a grain of salt as the dataset is meant to be informative only, it does not provide variables that are weighted by importance. 
+ 
+Another aspect of the dataset the Huffpost article touches on is the fact that much of the financial data included in the Scorecard dataset only reflects statistics about federal student-loan borrowers and Pell Grant recipients. [30% of undergraduates](https://educationdata.org/student-loan-debt-statistics#:~:text=While%2030%25%20of%20undergraduates%20borrow,debt%20is%20in%20Stafford%20Loans.&text=35.5%25%20of%20federal%20student%20loan%20debt%20is%20in%20direct%20consolidated%20loans.)  borrow from the federal government which is obviously not an accurate representation of the entire student body. They represent this group of students because most of the data in the dataset is collected from federal agencies stemming from the U.S. Department of Education. One can assume this data is most accessible to them. However, if they want the average American student to be able to use this dataset to make their decision about which college to apply to, then they need to make sure that the dataset reflects the student body adequately too. By only including data about federal student loan borrowers, the Scorecard dataset leaves a huge gap in what demographic they represent which may also misrepresent data about choice in major and earnings after graduation. 
+
+Additionally, the correlation between field of study and earnings after graduation is a variable left out of this dataset. When the dataset talks about earnings after graduation, it is imperative they mention the predominant field of study as an indicator of why the earnings after graduation is what it is. There needs to be an acknowledgement of industrial wage differentials, as an investment banker will earn significantly more than a public school teacher. The nuances of wage differentials are a whole separate argument that the Scorecard does not need to delve into but they need to mention what field are the earnings for earnings after graduation from.  
+
+## To conclude…
+
+While there are many existing limitations and concerns about the generalizability, accuracy, and usefulness of Scorecard, we nonetheless conclude that it is a great resource that students and families can utilize in their college search. It can help people quickly and easily access a wealth of information about an extensive list of postsecondary institutions. There are many institutions that work together to aggregate the data that this resource displays. The dataset itself is difficult to navigate due to an overwhelming number of variables and excessive documentation. However, it is a step towards ensuring equal access to postsecondary education.
+
+
+## References
+
+“An Overview of the U.S. Department of Education-- Pg 1.” Pamphlets, May 14, 2018. https://www2.ed.gov/about/overview/focus/what.html#
+
+“College Scorecard | College Scorecard.” Accessed April 10, 2022. https://collegescorecard.ed.gov/.
+
+“Documentation | College Scorecard.” Accessed April 10, 2022. https://collegescorecard.ed.gov/data/documentation/.
+
+“Federal Student Aid.” Accessed April 10, 2022. https://studentaid.gov/about.
+
+“Home | U.S. Department of Education.” Accessed April 10, 2022. https://www.ed.gov/.
+
+“Institutional Research.” Smith College. Accessed April 22, 2022. https://www.smith.edu/about-smith/institutional-research 
+
+“IPEDS Survey Methodology.” IPEDS. Accessed April 23, 2022. https://nces.ed.gov/ipeds/ReportYourData/IpedsSurveyMethodology 
+
+“National Center for Education Statistics (NCES) Home Page, Part of the U.S. Department of Education.” Accessed April 10, 2022. https://nces.ed.gov/.
+
+“National Students Loan Data System (NSLDS).” Accessed April 10, 2022. https://nsldsfap.ed.gov/nslds_FAP/.
+
+“Statistical Standards Program.” Accessed April 10, 2022. https://nces.ed.gov/statprog/2012/.
+
+“The Integrated Postsecondary Education Data System.” Accessed April 10, 2022. https://nces.ed.gov/ipeds/.
+
+Turner, Cory. “President Obama’s New ‘College Scorecard’ Is A Torrent Of Data.” NPR, September 12, 2015, sec. Higher Ed. https://www.npr.org/sections/ed/2015/09/12/439742485/president-obamas-new-college-scorecard-is-a-torrent-of-data.
+
+“College Scorecard Gathers Financial Data in One Website.” USA TODAY, https://www.usatoday.com/story/news/nation/2013/02/13/college-scorecard-gathers-financial-data/1918143/.  Accessed 21 Apr. 2022.
+
+“President Obama’s New College Scorecard Receives an ‘F.’” HuffPost, 15 Sept. 2015, https://www.huffpost.com/entry/president-obamas-new-coll_b_8137234. 
+
+“Student Loan Debt Statistics [2022]: Average + Total Debt.” Education Data Initiative, https://educationdata.org/student-loan-debt-statistics. .
+
+“Weekly Address: A New College Scorecard.” Whitehouse.Gov, 12 Sept. 2015, https://obamawhitehouse.archives.gov/the-press-office/2015/09/12/weekly-address-new-college-scorecard. 
+
+Bull, Eric. “Obama’s College Scorecard Is a Step in the Right Direction, but Better Data Would Improve It.” Brookings, 28 Mar. 2016, https://www.brookings.edu/blog/brookings-now/2016/03/28/obamas-college-scorecard-is-a-step-in-the-right-direction-but-better-data-would-improve-it/. 
+
+Green, Erica L. “DeVos Repeals Obama-Era Rule Cracking Down on For-Profit Colleges.” The New York Times, 28 June 2019. NYTimes.com, https://www.nytimes.com/2019/06/28/us/politics/betsy-devos-for-profit-colleges.html. 
