@@ -2,16 +2,16 @@
 title: 'Semiotic Analysis'
 subtitle: 'SDS 237: Final Project Checkpoint'
 author:
-  - Rose Porta
-  - Tulip Daaboul
-  - Marta Almazovaite   
-  - Lala Rukh
+  - FILL ME
+  - FILL ME
+  - FILL ME
+  - FILL ME
 date: "Last updated on `r Sys.Date()`"
 output: 
   rmdformats::readthedown:
     df_print: paged
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ## Overview and Instructions
@@ -44,9 +44,7 @@ prison_boundaries <- read.csv("datasets/Prison_Boundaries.csv")
 ```
 
 ```{r}
-library(downloader)
-id <- "13CE4VEvk9BYoqbL6tSyJ5ayIUR8DjJu5" 
-scorecard <- read_csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
+#Fill code to load data here.
 ```
 
 
@@ -61,13 +59,8 @@ prison_boundaries %>% str()
 ```
 
 ```{r}
-scorecard %>% head()
+# Fill code to analyze structure here.
 ```
-
-```{r}
-scorecard %>% str()
-```
-
 
 Note any potential data quality issues, such in incorrectly typed variables, missing values reported as something other than NA values, or dates formatted as strings. I'm assuming that at least a few members of your team will know how to clean these things up. You can use my example below as a guide. Reach out to me if there is something you are unsure of how to fix. 
 
@@ -83,17 +76,8 @@ prison_boundaries <-
 ```
 
 ```{r}
-# get rid of missing values
-scorecard <- scorecard %>% 
-  mutate(
-    across(where(is.character), ~na_if(., "PrivacySupressed"))
-    ) %>%
-  mutate(
-    across(where(is.character), ~na_if(., "NULL"))
-    ) %>%
-  discard(~all(is.na(.)))
+#Fill data cleaning code here.
 ```
-
 
 ## Units of Observation
 
@@ -102,8 +86,6 @@ Any time we count something in the world, we are not only engaging in a process 
 ### What makes each row in this dataset unique? 
 
 Identify the specific variables that uniquely identify each observation. Check to make sure that these values do not repeat in the dataset.
-
-UNITID, 
 
 ```{r}
 # Here I assume that the FACILITYID is a unique identifier for each prison in the dataset. To check, I group by the FACILITYID and filter to the groups with more than one observation. If I'm right, 0 rows should appear, indicating that FACILITYID is unique to each row.
@@ -115,28 +97,13 @@ prison_boundaries %>%
 
 ```{r}
 #Fill code confirm you've identified a unique ID for each row. Adjust your assumption if necessary, along with this code.
-unique(scorecard$UNITID) %>% length()
-
-scorecard %>%
-  group_by(UNITID) %>% 
-  filter(n() > 1)
-
-# OPEID, not unique but close
-scorecard2 <- scorecard %>%
-  group_by(OPEID) %>% 
-  filter(n() > 1)
-
-# urls-- not unique
-scorecard3 <- scorecard %>%
-  group_by(INSTURL) %>% 
-  filter(n() > 1)
 ```
 
 ### What does each row in your dataset represent? 
 
 In the prison_boundaries dataset, each row is what some might call a correctional facility, and what my collaborators and I refer to as a carceral facility (i.e. a prison, jail, or detention center).
 
-In the Scorecard dataset, each row represents a post-secondary institution in the United States.
+**Fill your response here.**
 
 ### How does that observation get defined in the data documentation? 
 
@@ -164,7 +131,6 @@ As you are considering this, you should:
 
 **Fill your response here.**
 
-The data documentation says, "A complete set of these data for all active Integrated Postsecondary Education Data System (IPEDS) institutions that participate in Title IV programs (either by disbursing aid or through deferments) and that are not solely administrative offices are available on the Scorecard data webpage and API1. In addition, some institutions that do not participate in Title IV programs are also included in the data if they meet similar criteria to Title IV participating institutions, ... [however] historical information for non-Title IV institutions (i.e., metrics from 1996-97 through 2016-17) is not yet incorporated into the Scorecard data."
 
 ## Categorical Variables
 
@@ -191,130 +157,7 @@ prison_boundaries %>%
 
 ```{r}
 #Fill code to plot bar charts here. 
-
-scorecard_und <- scorecard %>% 
-  filter(!is.na(CCUGPROF)) %>% 
-  mutate(CCUGPROF = as.numeric(CCUGPROF)) %>% 
-  mutate(
-         two_vs_four = case_when(
-           CCUGPROF >= 1 & CCUGPROF <= 4 ~ "two-year",
-           CCUGPROF >= 5 ~ "four-year",
-           CCUGPROF == 0 ~ "not classified",
-           CCUGPROF == -2 ~ "NA"
-         )
-         ) 
-  
-
-ggplot(data = scorecard, 
-       aes(x = as.factor(CCUGPROF),
-           fill = as.factor(CCUGPROF))
-       ) +
-  geom_bar() +
-  coord_flip()
-
-# barchart for two versus four year
-ggplot(data = scorecard_und, 
-       aes(x = two_vs_four,
-           fill = two_vs_four)
-       ) +
-  geom_bar() +
-  coord_flip()
 ```
-
-```{r}
-# open admissions
-scorecard %>%
-  ggplot(aes(x = OPENADMP)) +
-  geom_bar() +
-  coord_flip() +
-  theme_minimal()
-```
-
-```{r}
-scorecard_und_NA <- scorecard_und %>% 
-  filter(two_vs_four == "NA")
-
-scorecard_ccbasic <- scorecard %>% 
-  filter(!is.na(CCBASIC)) %>% 
-  mutate(CCBASIC = as.numeric(CCBASIC)) %>% 
-  mutate(cc_type = case_when(
-    CCBASIC == -2 ~ "NA",
-    CCBASIC == 0 ~ "unclassified",
-    (CCBASIC >= 1 & CCBASIC <= 9) ~ "Associate",
-    (CCBASIC >= 10 & CCBASIC <= 13) | (CCBASIC >= 24 & CCBASIC <= 32) ~ "Special Focus",
-    (CCBASIC == 14 | CCBASIC == 23) ~ "Baccalaureate/Associate",
-    (CCBASIC >= 15 & CCBASIC <= 17) ~ "Doctoral",
-    (CCBASIC >= 18 & CCBASIC <= 20) ~ "Masters",
-    (CCBASIC == 21 | CCBASIC == 22) ~ "Baccalaureate",
-    CCBASIC == 33 ~ "Tribal College"
-  ))
-
-scorecard_ccbasic_summarized <- scorecard_ccbasic %>% 
-  group_by(cc_type) %>% 
-  summarize(count = n()) 
-
-# barplot of carnegie classification basic type
-ggplot(scorecard_ccbasic_summarized,
-       aes(x = reorder(cc_type, count), y = count, fill = cc_type)) +
-  geom_col() +
-  coord_flip() +
-  labs(x = "Carnegie Basic Classification")
-```
-
-```{r}
-# size/setting
-scorecard_ccsize <- scorecard %>% 
-  filter(!is.na(CCSIZSET)) %>% 
-  mutate(CCSIZSET = as.numeric(CCSIZSET)) %>% 
-  mutate(cc_size = case_when(
-    CCSIZSET == -2 ~ "NA",
-    CCSIZSET == 0 ~ "unclassified",
-    CCSIZSET == 1 | (CCSIZSET >= 6 & CCSIZSET <= 8) ~ "very small",
-    CCSIZSET == 2 | (CCSIZSET >= 9 & CCSIZSET <= 11) ~ "small",
-    CCSIZSET == 3 | (CCSIZSET >= 12 & CCSIZSET <= 14) ~ "medium",
-    CCSIZSET == 4 | CCSIZSET == 5 | (CCSIZSET >= 15 & CCSIZSET <= 17) ~ "large",
-    CCSIZSET == 18 ~ "exclusively graduate"
-  ),
-  cc_residential = case_when(
-    CCSIZSET < 6 | CCSIZSET == 18 ~ "NA",
-    CCSIZSET %% 3 == 0 ~ "primarily nonresidential",
-    (CCSIZSET - 1) %% 3 == 0 ~ "primarily residential",
-    (CCSIZSET - 2) %% 3 == 0 ~ "highly residential"
-  )
-  ) %>% 
-  filter(cc_size != "NA") %>% 
-  select(INSTNM, CCSIZSET, cc_size, cc_residential)
-
-# barchart for setting
-scorecard_ccsize %>% 
-  filter(cc_residential != "NA") %>% 
-  ggplot(aes(x = cc_residential, fill = cc_residential)) +
-  geom_bar() +
-  coord_flip()
-
-# barchart for size
-ggplot(scorecard_ccsize,
-       aes(x = cc_size, fill = cc_size)) +
-  geom_bar() +
-  coord_flip()
-
-# setting facetted by size
-scorecard_ccsize %>% 
-  filter(cc_residential != "NA") %>% 
-  ggplot(aes(x = cc_residential, fill = cc_residential)) +
-  geom_bar() +
-  coord_flip() +
-  facet_wrap(~cc_size)
-```
-
-```{r}
-# look at special focus versus na
-scorecard_n <- scorecard_ccbasic %>% 
-  filter(cc_type == "Special Focus")
-scorecard_na <- scorecard_ccbasic %>% 
-  filter(cc_type == "NA")
-```
-
 
 What do you notice first?
 
