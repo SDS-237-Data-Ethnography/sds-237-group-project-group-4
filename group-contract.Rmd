@@ -1,10 +1,10 @@
 ---
 title: "SDS 237 Group Contract"
 author:
- - Author One
- - Author Two
- - Author Three
- - Author Four
+ - Rose Porta
+ - Marta Almazovaite
+ - Tulip Daaboul
+ - Lala Rukh
 date: "Last updated on `r Sys.Date()`"
 output: html_document
 ---
@@ -19,145 +19,157 @@ Working in groups can be both incredibly rewarding and incredibly challenging. T
 
 |Names|Emails|
 |-----|-----|
-| FILL ME | FILL ME |
-| FILL ME | FILL ME |
-| FILL ME | FILL ME |
-| FILL ME | FILL ME |
+| Rose Porta | rporta@smith.edu |
+| Marta Almazovaite | malmazovaite@smith.edu |
+| Tulip Daaboul | tdaaboul@smith.edu |
+| Lala Rukh | lrukh@smith.edu |
 
 # ROLES
 
 ## Who will be responsible for scheduling meetings and hosting Zoom calls? 
 
-FILL ME
+Rose Porta
 
 ## Who will be responsible for facilitating discussion during team meetings?
 
-FILL ME 
+Tulip Daaboul 
 
 ## Who will be responsible for taking notes and recording decisions during meetings?
 
-FILL ME
+Lala Rukh
 
 ## Who will be responsible for emailing the professor with questions?
 
-FILL ME
+Rose Porta
 
 ## Who will be responsible for requesting group assignment extensions?
 
-FILL ME
+Lala Rukh
 
 ## Who will be responsible for setting deadlines for drafts? 
 
-FILL ME
+Rose Porta
 
 ## Who will be responsible for checking in with team members when drafts are late?
 
-FILL ME
+Tulip Daaboul 
 
 ## Who will be responsible for reviewing all materials before submission?
 
-FILL ME
+Marta Almazovaite
 
 ## Who will be responsible for submitting assignments?
 
-FILL ME
+Marta Almazovaite
 
 
 # COLLABORATIVE WORKSPACES
 
 ## Where will the team keep meeting notes? 
 
-FILL ME
+Google docs document.
 
 ## Where will the team store drafts of assignments? 
 
-FILL ME
+In the github repo, possibly on branches.
 
 ## Through what channels will the team communicate when not meeting?
 
-FILL ME
+slack group message
 
 ## What is the expected response time for emails and messages? 
 
-FILL ME
+24 hours
 
 
 # MEETINGS
 
 ## How often will the team meet? 
 
-FILL ME
+Once per week to start, possibly will modify based on how long it takes us to complete different
+stages of the project.
 
 ## What days/times will the team meet?
 
-FILL ME
+We will meet Fridays 4:30-5:30pm, and/or Sundays 4-5pm depending on how much time we need and
+our schedules on a particular week.
 
 ## How long will meetings be?
 
-FILL ME
+1 hour for now, could change as project progresses.
 
 ## How will you make decisions during meetings (e.g. consensus, a vote)?
 
-FILL ME
+consensus
 		
 ## What strategies will you use to stay on task during meetings?
 
-FILL ME
+At the start of each meeting, we will determine goals to accomplish during the meeting, and at the end, we will check in to make sure we accomplished the goals, and if we did not, we will schedule another meeting or develop a plan to complete the goals.
 
 ## How should team members inform each other if they are going to be late to a meeting?
 
-FILL ME
+slack message
 			
 ## When is it ok for a team member to skip a meeting? How soon should they inform the group?
 
-FILL ME
+We will agree to let team members know 24 hours in advance if a conflict comes up with the meeting time, and we will do our best to be flexible and change the time of the meeting so all of us can make it every week. It is ok for a team member to skip a meeting if they have an important conflict or are sick.
 
 ## What will you do if a group member is chronically absent from or late to meetings?
 
-FILL ME
+We will reach out via slack to the group member to ask why they have been absent or late, and we
+will try to work out a solution so they can make it more often, like rescheduling the time or
+sending more reminders. If the team member does not respond, we will ask Lindsay to reach out to them.
 
 ## What will you do if a group member is consistently not participating in meetings?
 
-FILL ME
+We will set aside time during our meeting to talk as a group about the issue and see if we can
+encourage the member not participating to participate more. We will do this by asking them about
+why they are not participating and develop a plan to support them in participating more.
 
 ## What are your expectations for respectful engagement and communication during meetings and in collaborative workspaces? What will you do if a member of your team does not meet these expectations?
 
-FILL ME
+- listening actively to all group members and not interrupting
+- taking turns talking, making sure everyone gets a chance to contribute ideas
+- acknowledging everyone's ideas and contributions as valuable
+- staying on top of roles assigned (note taker, facilitator, etc.)
+
+If a member does not meet these expectations, we will talk about it during a meeting and ask them
+to change their behavior. We will explain clearly what the person did that violated the expectations and how they can change to meet the expectation. If they do not change their behavior, we will ask Lindsay to address the issue with them.
 
 
 # ASSIGNMENTS
 
 ## How will you ensure that all team members fully understand assignment expectations? What will you do if your team is unsure how to complete an assignment?
 
-FILL ME
+Each time we start an assignment, we will go over the main goals together and talk about any questions individuals have. If we are unsure how to complete an assignment, we will ask on slack or go to Lindsay's office hours to ask for clarification.
 
 ## How will you ensure that all team members are contributing equitably to assignments?
 
-FILL ME
+For each assignment, we will talk about how to split up the tasks, and assign each member to specific tasks. We may use github issues to assign tasks if that seems helpful.
 
 ## How soon in advance of deadlines do you expect all team members to share drafts of their work?
 
-FILL ME
+At least 2 days (48 hours) before to give the rest of the team time to review the drafts. If it is a larger assignment and we want to discuss revisions as a group, we will also try to get drafts done by the night before our last group meeting prior to the deadline so we can talk about potential revisions during the meeting.
 
 ## What will be your process for reviewing each other’s work before submission?
 
-FILL ME
+We will each assign one other team member to review our work for each assignment (using github review assignment), and we will make sure to rotate who is reviewing who's work. If it is a larger or more collaborative assignment, we will all talk about revisions together at our group meeting.
 
 ## What will you do if the quality of a team member’s work does not meet the group’s expectations? When is it permissible to revise another team member’s work?
 
-FILL ME
+As we are reviewing each others' work, we will leave comments to let them know what we would change. We will never directly revise another group member's work. If the quality of a group member's work does not meet group expectations, we will leave specific comments telling them how to improve the quality.
 
 ## What are your expectations around punctuality regarding group deadlines? How should team members inform each other if they need an extension?
 
-FILL ME
+We will allow approximately a 5-hour grace period where the member does not have to inform the group if their submission is late, however if a member needs a longer extension, they can let the group know via slack.
 
 ## What will you do if a student is consistently late in submitting draft work?
 
-FILL ME
+We will reach out via slack to the group member or set aside time during our group meeting to ask why they have been absent or late, and we will try to work out a plan to help keep them on track with deadlines. If the team member does not respond or continues to submit late work, we will ask Lindsay to reach out to them.
 
 ## What will you do if you discover that a team member’s work violates the Academic Code of Conduct?
 
-FILL ME
+We will address the issue with the group member and ask them to revise their work. If the team member does not respond or does not agree to change it, we will ask Lindsay to reach out to them.
 
 # SIGNATURES
 
@@ -165,17 +177,17 @@ FILL ME
 * I agree to abide by the terms and conditions outlined in this document.			
 * I understand that failing to abide by the terms and conditions outlined in this document may impact my grade.
  							
-Signature: FILL ME 
-Date: `r format(Sys.time(), '%d %B, %Y')`
+Signature: Rose Porta 
+Date: `r format(Sys.time(), '%02 %13, %2022')`
 
-Signature: FILL ME 
-Date: `r format(Sys.time(), '%d %B, %Y')`
+Signature: Marta Almazovaite
+Date: `r format(Sys.time(), '%02 %13, %2022')`
 
-Signature: FILL ME
-Date `r format(Sys.time(), '%d %B, %Y')`
+Signature: Tulip Daaboul
+Date `r format(Sys.time(), '%02 %13, %2022')`
 
-Signature: FILL ME
-Date: `r format(Sys.time(), '%d %B, %Y')`
+Signature: Lala Rukh
+Date: `r format(Sys.time(), '%02 %13, %2022')`
 
 ```{r eval=FALSE, include=FALSE}
 #In the Git tab in your Environment pane, stage and commit your changes, and then push them to your GitHub repo.  
